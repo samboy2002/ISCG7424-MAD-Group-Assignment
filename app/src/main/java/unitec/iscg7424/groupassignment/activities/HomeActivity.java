@@ -15,6 +15,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        ((TextView) findViewById(R.id.txt_username)).setText(Constants.loginUser.getFullName());
+//        ((TextView) findViewById(R.id.txt_username)).setText(Constants.loginUser.getFullName());
     }
 }

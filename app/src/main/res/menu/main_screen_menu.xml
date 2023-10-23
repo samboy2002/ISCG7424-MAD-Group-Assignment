@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/btn_group"
+        android:icon="@drawable/ic_group_foreground"
+        android:title="My Groups"
+        app:showAsAction="always|withText"/>
+    <item
+        android:id="@+id/btn_task"
+        android:icon="@drawable/ic_task_foreground"
+        android:title="My Tasks"
+        app:showAsAction="always|withText"/>
+    <item
+        android:id="@+id/btn_tools"
+        android:icon="@drawable/ic_tools_foreground"
+        android:title="Tools"
+        app:showAsAction="always|withText"/>
+    <item
+        android:id="@+id/btn_profile"
+        android:icon="@drawable/ic_user_foreground"
+        android:title="My Profile"
+        app:showAsAction="always|withText"/>
+</menu>
