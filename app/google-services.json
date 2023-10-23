@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "525335626929",
+    "firebase_url": "https://iscg7424-mda-default-rtdb.firebaseio.com",
+    "project_id": "iscg7424-mda",
+    "storage_bucket": "iscg7424-mda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525335626929:android:6cdd18586bc61ee3c7ce90",
+        "android_client_info": {
+          "package_name": "unitec.iscg7424.assignment_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525335626929-2jumlrgo46avqr2tegv73didul980tvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrvJAxpjwjQYlNzhp-HSxz2BjMF-UWti0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525335626929-2jumlrgo46avqr2tegv73didul980tvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525335626929:android:faa41c1a35dbf96fc7ce90",
+        "android_client_info": {
+          "package_name": "unitec.iscg7424.groupassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525335626929-2jumlrgo46avqr2tegv73didul980tvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrvJAxpjwjQYlNzhp-HSxz2BjMF-UWti0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525335626929-2jumlrgo46avqr2tegv73didul980tvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525335626929:android:1bc59d9d52669835c7ce90",
+        "android_client_info": {
+          "package_name": "unitec.iscg7424.week7_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525335626929-2jumlrgo46avqr2tegv73didul980tvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrvJAxpjwjQYlNzhp-HSxz2BjMF-UWti0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525335626929-2jumlrgo46avqr2tegv73didul980tvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

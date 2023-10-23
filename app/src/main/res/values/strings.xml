@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Study Buddy</string>
+    <string name="welcome">Welcome to\nStudy Buddy</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">SIgn Up</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="user_register">User Register</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+
+    <string name="err_email_exist">The email address has been registered.</string>
+    <string name="err_first_name_required">The first name is required.</string>
+    <string name="err_last_name_required">The last name is required.</string>
+    <string name="err_email_required">The email is required.</string>
+    <string name="err_password_required">The password is required.</string>
+    <string name="err_invalid_confirm_password">The confirm password is invalid.</string>
+    <string name="err_invalid_account">Email or Password is invalid.</string>
+</resources>
