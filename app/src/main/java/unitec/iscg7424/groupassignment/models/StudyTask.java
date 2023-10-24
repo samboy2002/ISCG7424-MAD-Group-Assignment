@@ -1,14 +1,18 @@
 package unitec.iscg7424.groupassignment.models;
 
 public class StudyTask {
+    public static String[] Periods = new String[]{"Daily", "Weekly", "Monthly"};
     private String id;
     private String groupId;
+    private String groupName;
     private String name;
     private String description;
-    private String frequently;
+    private String period;
     private String startDate;
 
     private String owner;
+
+
 
     public String getId() {
         return id;
@@ -24,6 +28,14 @@ public class StudyTask {
 
     public void setGroupId(String groupId) {
         this.groupId = groupId;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
     public String getName() {
@@ -42,12 +54,12 @@ public class StudyTask {
         this.description = description;
     }
 
-    public String getFrequently() {
-        return frequently;
+    public String getPeriod() {
+        return period;
     }
 
-    public void setFrequently(String frequently) {
-        this.frequently = frequently;
+    public void setPeriod(String period) {
+        this.period = period;
     }
 
     public String getStartDate() {
@@ -64,5 +76,24 @@ public class StudyTask {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public enum CheckInMethod {
+        Location("location", "Check-In at your location"),
+        Photo("photo", "Upload a photo"),
+        ;
+        private final String code;
+        private final String desc;
+
+        CheckInMethod(String code, String desc) {
+            this.code = code;
+            this.desc = desc;
+        }
+        public String getCode() {
+            return code;
+        }
+        public String getDesc() {
+            return desc;
+        }
     }
 }

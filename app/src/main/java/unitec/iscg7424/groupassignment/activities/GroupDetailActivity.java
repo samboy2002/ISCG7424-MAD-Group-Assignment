@@ -3,6 +3,7 @@ package unitec.iscg7424.groupassignment.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class GroupDetailActivity extends AppCompatActivity {
         findViewById(R.id.btn_cancel).setOnClickListener(unused -> finish());
         findViewById(R.id.btn_join_group).setOnClickListener(this::onJoinGroup);
         findViewById(R.id.btn_leave_group).setOnClickListener(this::onLeaveGroup);
+        findViewById(R.id.btn_create_task).setOnClickListener(this::onCreateTask);
 
         ((TextView) findViewById(R.id.txt_group_name)).setText(group.getName());
         ((TextView) findViewById(R.id.txt_description)).setText(group.getDescription());
@@ -44,6 +46,12 @@ public class GroupDetailActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_leave_group)).setText("Leave Group");
             findViewById(R.id.btn_create_task).setVisibility(View.GONE);
         }
+    }
+
+    private void onCreateTask(View view) {
+        TaskCreateActivity.studyGroup = group;
+        Intent intent = new Intent(this, TaskCreateActivity.class);
+        startActivity(intent);
     }
 
     private void onJoinGroup(View view) {

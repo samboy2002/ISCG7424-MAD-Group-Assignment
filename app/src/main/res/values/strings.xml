@@ -34,4 +34,8 @@
     <string name="join_groups">Join Groups</string>
     <string name="leave_group">Leave Group</string>
     <string name="create_task">Create Task</string>
+    <string name="task_name">Task Name</string>
+    <string name="end_date">End Date</string>
+    <string name="task_period">Task Period</string>
+    <string name="check_in_method">Check-In Method</string>
 </resources>
