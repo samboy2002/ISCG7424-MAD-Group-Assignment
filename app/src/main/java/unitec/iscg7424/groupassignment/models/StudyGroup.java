@@ -11,6 +11,12 @@ public class StudyGroup {
 
     private String description;
 
+    private String tag;
+
+    private int maxMembers = 10;
+
+    private String startDate;
+
     private List<String> members = new ArrayList<>();
 
     public String getId() {
@@ -51,5 +57,29 @@ public class StudyGroup {
 
     public void setMembers(List<String> members) {
         this.members = members;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public int getMaxMembers() {
+        return maxMembers;
+    }
+
+    public void setMaxMembers(int maxMembers) {
+        this.maxMembers = maxMembers;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 }

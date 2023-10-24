@@ -17,6 +17,9 @@ import unitec.iscg7424.groupassignment.utlities.Constants;
 public class HomeActivity extends AppCompatActivity {
     private BottomNavigationView menuHome;
     private GroupFragment groupFragment = new GroupFragment();
+    private TaskFragment taskFragment = new TaskFragment();
+    private ToolsFragment toolsFragment = new ToolsFragment();
+    private ProfileFragment profileFragment = new ProfileFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,27 @@ public class HomeActivity extends AppCompatActivity {
         if (menuItem.getItemId() == R.id.btn_group) {
             getSupportFragmentManager().beginTransaction()
                                        .replace(R.id.homeFragment, groupFragment)
+                                       .commit();
+            return true;
+        }
+
+        if (menuItem.getItemId() == R.id.btn_task) {
+            getSupportFragmentManager().beginTransaction()
+                                       .replace(R.id.homeFragment, taskFragment)
+                                       .commit();
+            return true;
+        }
+
+        if (menuItem.getItemId() == R.id.btn_tools) {
+            getSupportFragmentManager().beginTransaction()
+                                       .replace(R.id.homeFragment, toolsFragment)
+                                       .commit();
+            return true;
+        }
+
+        if (menuItem.getItemId() == R.id.btn_profile) {
+            getSupportFragmentManager().beginTransaction()
+                                       .replace(R.id.homeFragment, profileFragment)
                                        .commit();
             return true;
         }
