@@ -8,6 +8,8 @@ public class StudyTask {
     private String frequently;
     private String startDate;
 
+    private String owner;
+
     public String getId() {
         return id;
     }
@@ -54,5 +56,13 @@ public class StudyTask {
 
     public void setStartDate(String startDate) {
         this.startDate = startDate;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }
