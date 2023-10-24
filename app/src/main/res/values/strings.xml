@@ -31,4 +31,7 @@
     <string name="icon_group">&#xf500;</string>
     <string name="icon_calendar">&#xf073;</string>
     <string name="icon_tag">&#xf02b;</string>
+    <string name="join_groups">Join Groups</string>
+    <string name="leave_group">Leave Group</string>
+    <string name="create_task">Create Task</string>
 </resources>

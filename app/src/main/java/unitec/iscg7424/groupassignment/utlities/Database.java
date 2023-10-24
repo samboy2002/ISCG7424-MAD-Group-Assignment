@@ -49,4 +49,9 @@ public class Database {
 
         return reference.child(group.getId()).setValue(group);
     }
+
+    public static Task<Void> removeGroup(String groupId) {
+        DatabaseReference reference = database.getReference(GROUP_LIST);
+        return reference.child(groupId).removeValue();
+    }
 }

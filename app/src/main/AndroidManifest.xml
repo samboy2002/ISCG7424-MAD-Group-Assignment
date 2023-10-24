@@ -13,6 +13,12 @@
         android:theme="@style/Theme.GroupAssignment"
         tools:targetApi="31">
         <activity
+            android:name=".activities.GroupDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GroupJoinActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.GroupCreateActivity"
             android:exported="false" />
         <activity
