@@ -27,6 +27,7 @@ public class GroupDetailActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.txt_group_name)).setText(group.getName());
         ((TextView) findViewById(R.id.txt_description)).setText(group.getDescription());
+        ((TextView) findViewById(R.id.txt_member_count)).setText(group.getMembers().size() + " / " + group.getMaxMembers());
 
         if (group.getMembers().contains(Constants.loginUser.getId())) {
             findViewById(R.id.btn_join_group).setVisibility(View.GONE);
