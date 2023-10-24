@@ -32,12 +32,13 @@ public class Database {
         return reference.child(USER_LIST).orderByChild("email").equalTo(email).limitToFirst(1);
     }
 
-    public static Query getGroupByUser(String userId) {
+    public static Query allGroups() {
         DatabaseReference reference = database.getReference();
-        return reference.child(GROUP_LIST).orderByChild("owner").equalTo(userId);
+        return reference.child(GROUP_LIST);
     }
 
     public static Task<Void> saveGroup(StudyGroup group) {
+
         DatabaseReference reference = database.getReference(GROUP_LIST);
 
         if (group.getId() == null) {

@@ -16,6 +16,7 @@ import java.util.Calendar;
 
 import unitec.iscg7424.groupassignment.R;
 import unitec.iscg7424.groupassignment.models.StudyGroup;
+import unitec.iscg7424.groupassignment.utlities.Constants;
 import unitec.iscg7424.groupassignment.utlities.Database;
 
 public class GroupCreateActivity extends AppCompatActivity {
@@ -80,6 +81,8 @@ public class GroupCreateActivity extends AppCompatActivity {
         studyGroup.setStartDate(txtStartDate.getText().toString());
         studyGroup.setTag(txtTag.getText().toString());
         studyGroup.setDescription(txtDescription.getText().toString());
+        studyGroup.setOwner(Constants.loginUser.getId());
+        studyGroup.addMember(Constants.loginUser.getId());
 
         Database.saveGroup(studyGroup).addOnSuccessListener(unused -> {
             Toast.makeText(this, "New group was created successfully.", Toast.LENGTH_SHORT)

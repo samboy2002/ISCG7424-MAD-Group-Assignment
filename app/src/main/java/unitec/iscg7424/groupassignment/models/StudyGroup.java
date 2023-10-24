@@ -82,4 +82,12 @@ public class StudyGroup {
     public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
+
+    public void addMember(String userId) {
+        this.members.add(userId);
+    }
+
+    public void removeMember(String userId) {
+        this.members.remove(userId);
+    }
 }

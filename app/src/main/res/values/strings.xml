@@ -28,4 +28,7 @@
     <string name="max_count_of_members">Max Count Of Members</string>
     <string name="tag">Tag</string>
     <string name="default_member_count">10</string>
+    <string name="icon_group">&#xf500;</string>
+    <string name="icon_calendar">&#xf073;</string>
+    <string name="icon_tag">&#xf02b;</string>
 </resources>
