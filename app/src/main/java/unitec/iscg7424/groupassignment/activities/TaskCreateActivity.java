@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,6 +21,8 @@ import java.util.List;
 import unitec.iscg7424.groupassignment.R;
 import unitec.iscg7424.groupassignment.models.StudyGroup;
 import unitec.iscg7424.groupassignment.models.StudyTask;
+import unitec.iscg7424.groupassignment.utlities.Constants;
+import unitec.iscg7424.groupassignment.utlities.Database;
 
 public class TaskCreateActivity extends AppCompatActivity {
     public static StudyGroup studyGroup;
@@ -87,6 +92,21 @@ public class TaskCreateActivity extends AppCompatActivity {
     }
 
     private void onCreateTask(View view) {
+        StudyTask task = new StudyTask();
+        task.setGroupId(studyGroup.getId());
+        task.setGroupName(studyGroup.getName());
+        task.setName(txtTaskName.getText().toString());
+        task.setDescription(txtDescription.getText().toString());
+        task.setOwner(Constants.loginUser.getId());
+        task.setStartDate(txtStartDate.getText().toString());
+        task.setEndDate(txtEndDate.getText().toString());
+        task.setPeriod(txtPeriod.getSelectedItem().toString());
+        task.setCheckInMethod(StudyTask.CheckInMethod.findByDesc(txtCheckInMethod.getSelectedItem().toString()));
 
+        Database.saveTask(task).addOnSuccessListener(unused -> {
+            Toast.makeText(this, "Task created successfully.", Toast.LENGTH_SHORT).show();
+            studyGroup = null;
+            finish();
+        });
     }
 }

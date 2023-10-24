@@ -1,5 +1,7 @@
 package unitec.iscg7424.groupassignment.models;
 
+import com.google.firebase.database.Exclude;
+
 public class StudyTask {
     public static String[] Periods = new String[]{"Daily", "Weekly", "Monthly"};
     private String id;
@@ -9,8 +11,9 @@ public class StudyTask {
     private String description;
     private String period;
     private String startDate;
-
+    private String endDate;
     private String owner;
+    private CheckInMethod checkInMethod;
 
 
 
@@ -70,6 +73,14 @@ public class StudyTask {
         this.startDate = startDate;
     }
 
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
     public String getOwner() {
         return owner;
     }
@@ -78,9 +89,23 @@ public class StudyTask {
         this.owner = owner;
     }
 
+    public CheckInMethod getCheckInMethod() {
+        return checkInMethod;
+    }
+
+    public void setCheckInMethod(CheckInMethod checkInMethod) {
+        this.checkInMethod = checkInMethod;
+    }
+
+    @Exclude
+    public String getDateRange() {
+        return startDate + " ~ " + endDate;
+    }
+
     public enum CheckInMethod {
         Location("location", "Check-In at your location"),
-        Photo("photo", "Upload a photo"),
+        Photo("photo", "Upload your photo"),
+        Voice("voice", "Upload your voice record"),
         ;
         private final String code;
         private final String desc;
@@ -94,6 +119,14 @@ public class StudyTask {
         }
         public String getDesc() {
             return desc;
+        }
+
+        public static CheckInMethod findByDesc(String desc) {
+            for (CheckInMethod item : values()) {
+                if (item.getDesc().equals(desc)) return item;
+            }
+
+            return null;
         }
     }
 }

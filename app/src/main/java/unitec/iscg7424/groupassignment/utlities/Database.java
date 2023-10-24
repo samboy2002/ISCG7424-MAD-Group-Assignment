@@ -8,11 +8,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import unitec.iscg7424.groupassignment.models.StudyGroup;
+import unitec.iscg7424.groupassignment.models.StudyTask;
 import unitec.iscg7424.groupassignment.models.User;
 
 public class Database {
     private static final String USER_LIST = "MGA_Users";
     private static final String GROUP_LIST = "MGA_Groups";
+    private static final String TASK_LIST = "MGA_Tasks";
+
     private final static FirebaseDatabase database = FirebaseDatabase.getInstance("https://iscg7424-mda-default-rtdb.firebaseio.com");
 
     public static Task<Void> saveUser(User user) {
@@ -38,20 +41,31 @@ public class Database {
     }
 
     public static Task<Void> saveGroup(StudyGroup group) {
-
         DatabaseReference reference = database.getReference(GROUP_LIST);
-
         if (group.getId() == null) {
             String id = reference.push().getKey();
             assert id != null;
             group.setId(id);
         }
-
         return reference.child(group.getId()).setValue(group);
     }
 
     public static Task<Void> removeGroup(String groupId) {
         DatabaseReference reference = database.getReference(GROUP_LIST);
         return reference.child(groupId).removeValue();
+    }
+
+    public static Task<Void> saveTask(StudyTask task) {
+        DatabaseReference reference = database.getReference(TASK_LIST);
+        if (task.getId() == null) {
+            String id = reference.push().getKey();
+            assert id != null;
+            task.setId(id);
+        }
+        return reference.child(task.getId()).setValue(task);
+    }
+    public static Query allTasks() {
+        DatabaseReference reference = database.getReference();
+        return reference.child(TASK_LIST);
     }
 }
