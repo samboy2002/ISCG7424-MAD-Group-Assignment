@@ -2,12 +2,20 @@ package unitec.iscg7424.groupassignment.models;
 
 import com.google.firebase.database.Exclude;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private String id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
+
+    private List<AcceptedTask> acceptedTasks = new ArrayList<>();
+    private List<String> giveUpTasks = new ArrayList<>();
+
+    private List<String> groups = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -51,6 +59,30 @@ public class User {
 
     public boolean isValid(String password) {
         return this.password.equals(password);
+    }
+
+    public List<AcceptedTask> getAcceptedTasks() {
+        return acceptedTasks;
+    }
+
+    public void setAcceptedTasks(List<AcceptedTask> acceptedTasks) {
+        this.acceptedTasks = acceptedTasks;
+    }
+
+    public List<String> getGiveUpTasks() {
+        return giveUpTasks;
+    }
+
+    public void setGiveUpTasks(List<String> giveUpTasks) {
+        this.giveUpTasks = giveUpTasks;
+    }
+
+    public List<String> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<String> groups) {
+        this.groups = groups;
     }
 
     @Exclude

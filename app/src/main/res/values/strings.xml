@@ -19,4 +19,5 @@
     <string name="err_password_required">The password is required.</string>
     <string name="err_invalid_confirm_password">The confirm password is invalid.</string>
     <string name="err_invalid_account">Email or Password is invalid.</string>
+
 </resources>
