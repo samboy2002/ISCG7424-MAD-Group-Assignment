@@ -15,8 +15,6 @@ public class User {
     private List<AcceptedTask> acceptedTasks = new ArrayList<>();
     private List<String> giveUpTasks = new ArrayList<>();
 
-    private List<String> groups = new ArrayList<>();
-
     public String getId() {
         return id;
     }
@@ -77,16 +75,16 @@ public class User {
         this.giveUpTasks = giveUpTasks;
     }
 
-    public List<String> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<String> groups) {
-        this.groups = groups;
-    }
-
     @Exclude
     public String getFullName() {
         return this.firstName + " " + this.lastName;
+    }
+
+    public void addAcceptTask(AcceptedTask acceptedTask) {
+        this.acceptedTasks.add(acceptedTask);
+    }
+
+    public void addGiveUpTask(String taskId) {
+        this.giveUpTasks.add(taskId);
     }
 }
