@@ -140,6 +140,7 @@
                     android:fontFamily="@font/fa_solid_900"
                     android:text="@string/icon_temperature"
                     android:textAlignment="center"
+                    android:textColor="@color/red"
                     android:textSize="34sp" />
                 <TextView
                     android:layout_width="wrap_content"
