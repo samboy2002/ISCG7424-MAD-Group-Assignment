@@ -47,4 +47,6 @@
     <string name="accept_the_task">Accept The Task</string>
     <string name="give_up_the_task">Give Up The Task</string>
     <string name="check_in_the_task">Check In The Task</string>
+    <string name="profile">Profile</string>
+    <string name="log_out">Log Out</string>
 </resources>
