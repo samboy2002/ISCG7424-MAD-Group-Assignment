@@ -12,7 +12,7 @@ public class User {
     private String email;
     private String password;
 
-    private List<AcceptedTask> acceptedTasks = new ArrayList<>();
+    private List<String> acceptedTasks = new ArrayList<>();
     private List<String> giveUpTasks = new ArrayList<>();
 
     public String getId() {
@@ -59,11 +59,11 @@ public class User {
         return this.password.equals(password);
     }
 
-    public List<AcceptedTask> getAcceptedTasks() {
+    public List<String> getAcceptedTasks() {
         return acceptedTasks;
     }
 
-    public void setAcceptedTasks(List<AcceptedTask> acceptedTasks) {
+    public void setAcceptedTasks(List<String> acceptedTasks) {
         this.acceptedTasks = acceptedTasks;
     }
 
@@ -80,8 +80,8 @@ public class User {
         return this.firstName + " " + this.lastName;
     }
 
-    public void addAcceptTask(AcceptedTask acceptedTask) {
-        this.acceptedTasks.add(acceptedTask);
+    public void addAcceptTask(String taskId) {
+        this.acceptedTasks.add(taskId);
     }
 
     public void addGiveUpTask(String taskId) {

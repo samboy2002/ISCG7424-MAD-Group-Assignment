@@ -1,6 +1,9 @@
 package unitec.iscg7424.groupassignment.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -8,14 +11,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import unitec.iscg7424.groupassignment.R;
 import unitec.iscg7424.groupassignment.models.StudyGroup;
+import unitec.iscg7424.groupassignment.models.StudyTask;
 import unitec.iscg7424.groupassignment.utlities.Constants;
 import unitec.iscg7424.groupassignment.utlities.Database;
+import unitec.iscg7424.groupassignment.views.TaskCardAdapter;
 
 public class GroupDetailActivity extends AppCompatActivity {
     public static StudyGroup group;
+    private TaskCardAdapter taskCardAdapter = new TaskCardAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +60,34 @@ public class GroupDetailActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.btn_leave_group)).setText("Leave Group");
             findViewById(R.id.btn_create_task).setVisibility(View.GONE);
         }
+
+        RecyclerView recyclerView = findViewById(R.id.view_task_list);
+        recyclerView.setAdapter(taskCardAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        loadTasks();
+    }
+
+    private void loadTasks() {
+        Database.allTasks().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<StudyTask> tasks = new ArrayList<>();
+                for (DataSnapshot item : snapshot.getChildren()) {
+                    StudyTask task = item.getValue(StudyTask.class);
+                    if (task != null && task.getGroupId().equals(group.getId())) {
+                        tasks.add(task);
+                    }
+                }
+                taskCardAdapter.refresh(tasks);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(GroupDetailActivity.this, error.getMessage(), Toast.LENGTH_SHORT)
+                     .show();
+            }
+        });
     }
 
     private void onCreateTask(View view) {

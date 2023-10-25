@@ -3,7 +3,7 @@ package unitec.iscg7424.groupassignment.models;
 import com.google.firebase.database.Exclude;
 
 public class StudyTask {
-    public static String[] Periods = new String[]{"Daily", "Weekly", "Monthly"};
+    public static String[] Periods = new String[]{"Daily"};
     private String id;
     private String groupId;
     private String groupName;

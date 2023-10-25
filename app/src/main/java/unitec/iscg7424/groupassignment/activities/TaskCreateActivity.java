@@ -17,7 +17,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import unitec.iscg7424.groupassignment.R;
-import unitec.iscg7424.groupassignment.models.AcceptedTask;
 import unitec.iscg7424.groupassignment.models.StudyGroup;
 import unitec.iscg7424.groupassignment.models.StudyTask;
 import unitec.iscg7424.groupassignment.utlities.Constants;
@@ -103,9 +102,8 @@ public class TaskCreateActivity extends AppCompatActivity {
         task.setCheckInMethod(StudyTask.CheckInMethod.findByDesc(txtCheckInMethod.getSelectedItem().toString()));
 
         Database.saveTask(task).addOnSuccessListener(unused -> {
-            AcceptedTask acceptedTask = new AcceptedTask();
-            acceptedTask.setTaskId(task.getId());
-            Constants.loginUser.addAcceptTask(acceptedTask);
+            Constants.loginUser.addAcceptTask(task.getId());
+            Database.saveUser(Constants.loginUser);
             Toast.makeText(this, "Task created successfully.", Toast.LENGTH_SHORT).show();
             studyGroup = null;
             finish();

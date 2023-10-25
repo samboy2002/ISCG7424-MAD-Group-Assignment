@@ -31,6 +31,7 @@
     <string name="icon_group">&#xf500;</string>
     <string name="icon_calendar">&#xf073;</string>
     <string name="icon_tag">&#xf02b;</string>
+    <string name="icon_clock">&#xf1da;</string>
     <string name="join_groups">Join Groups</string>
     <string name="leave_group">Leave Group</string>
     <string name="create_task">Create Task</string>
@@ -38,4 +39,5 @@
     <string name="end_date">End Date</string>
     <string name="task_period">Task Period</string>
     <string name="check_in_method">Check-In Method</string>
+    <string name="my_tasks">My Tasks</string>
 </resources>
