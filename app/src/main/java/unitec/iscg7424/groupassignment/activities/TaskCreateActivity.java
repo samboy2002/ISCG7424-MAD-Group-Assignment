@@ -100,10 +100,9 @@ public class TaskCreateActivity extends AppCompatActivity {
         task.setEndDate(txtEndDate.getText().toString());
         task.setPeriod(txtPeriod.getSelectedItem().toString());
         task.setCheckInMethod(StudyTask.CheckInMethod.findByDesc(txtCheckInMethod.getSelectedItem().toString()));
+        task.addAcceptedMember(Constants.loginUser.getId());
 
         Database.saveTask(task).addOnSuccessListener(unused -> {
-            Constants.loginUser.addAcceptTask(task.getId());
-            Database.saveUser(Constants.loginUser);
             Toast.makeText(this, "Task created successfully.", Toast.LENGTH_SHORT).show();
             studyGroup = null;
             finish();

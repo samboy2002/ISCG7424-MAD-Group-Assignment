@@ -26,7 +26,7 @@ import unitec.iscg7424.groupassignment.utlities.Database;
 import unitec.iscg7424.groupassignment.views.TaskCardAdapter;
 
 public class TaskFragment extends Fragment {
-    private TaskCardAdapter taskCardAdapter = new TaskCardAdapter();
+    private final TaskCardAdapter taskCardAdapter = new TaskCardAdapter();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +49,7 @@ public class TaskFragment extends Fragment {
                 List<StudyTask> tasks = new ArrayList<>();
                 for (DataSnapshot item : snapshot.getChildren()) {
                     StudyTask task = item.getValue(StudyTask.class);
-                    if (task != null && Constants.loginUser.getAcceptedTasks().contains(task.getId())) {
+                    if (task != null && task.getAcceptedMembers().contains(Constants.loginUser.getId())) {
                         tasks.add(task);
                     }
                 }

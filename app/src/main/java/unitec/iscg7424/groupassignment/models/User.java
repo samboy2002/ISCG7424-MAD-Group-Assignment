@@ -12,9 +12,6 @@ public class User {
     private String email;
     private String password;
 
-    private List<String> acceptedTasks = new ArrayList<>();
-    private List<String> giveUpTasks = new ArrayList<>();
-
     public String getId() {
         return id;
     }
@@ -59,32 +56,8 @@ public class User {
         return this.password.equals(password);
     }
 
-    public List<String> getAcceptedTasks() {
-        return acceptedTasks;
-    }
-
-    public void setAcceptedTasks(List<String> acceptedTasks) {
-        this.acceptedTasks = acceptedTasks;
-    }
-
-    public List<String> getGiveUpTasks() {
-        return giveUpTasks;
-    }
-
-    public void setGiveUpTasks(List<String> giveUpTasks) {
-        this.giveUpTasks = giveUpTasks;
-    }
-
     @Exclude
     public String getFullName() {
         return this.firstName + " " + this.lastName;
-    }
-
-    public void addAcceptTask(String taskId) {
-        this.acceptedTasks.add(taskId);
-    }
-
-    public void addGiveUpTask(String taskId) {
-        this.giveUpTasks.add(taskId);
     }
 }

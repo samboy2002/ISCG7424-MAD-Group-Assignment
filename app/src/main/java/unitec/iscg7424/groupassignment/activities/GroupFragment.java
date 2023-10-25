@@ -27,7 +27,7 @@ import unitec.iscg7424.groupassignment.utlities.Database;
 import unitec.iscg7424.groupassignment.views.GroupCardAdapter;
 
 public class GroupFragment extends Fragment {
-    private GroupCardAdapter groupCardAdapter = new GroupCardAdapter();
+    private final GroupCardAdapter groupCardAdapter = new GroupCardAdapter();
 
     public GroupFragment() {
         // Required empty public constructor

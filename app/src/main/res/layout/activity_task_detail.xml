@@ -5,16 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="10dp"
-    android:paddingTop="20dp"
-    tools:context=".activities.GroupDetailActivity">
+    android:padding="10dp"
+    tools:context=".activities.TaskDetailActivity">
 
     <TextView
         android:id="@+id/txt_group_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Task Detail"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txt_task_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="Group Detail"
+        android:text="Task Detail"
         android:textAlignment="center"
         android:textSize="28sp" />
 
@@ -36,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:fontFamily="@font/fa_solid_900"
-            android:text="@string/icon_group"
+            android:text="@string/icon_clock"
             android:textAlignment="center"
             android:textSize="16sp" />
         <TextView
@@ -44,9 +52,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:textSize="16sp"
-            android:text="Members: "/>
+            android:text="Period: "/>
         <TextView
-            android:id="@+id/txt_member_count"
+            android:id="@+id/txt_task_period"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -73,28 +81,27 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:textSize="16sp"
-            android:text="Date Created: "/>
+            android:text="Task Date: "/>
         <TextView
-            android:id="@+id/txt_start_date"
+            android:id="@+id/txt_date_range"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="20/10/2023"
             android:textSize="16sp" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
-            android:fontFamily="@font/fa_solid_900"
-            android:text="@string/icon_tag"
+            android:fontFamily="@font/fa_regular_400"
+            android:text="@string/icon_calendar_check"
             android:textAlignment="center"
             android:textSize="16sp" />
         <TextView
@@ -102,42 +109,66 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:textSize="16sp"
-            android:text="Category: "/>
+            android:text="Check-In: "/>
         <TextView
-            android:id="@+id/txt_tag"
+            android:id="@+id/txt_check_in_method"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="English"
+            android:text="Photo"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_status_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:fontFamily="@font/fa_regular_400"
+            android:text="@string/icon_checked"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:textSize="16sp"
+            android:text="Status: "/>
+        <TextView
+            android:id="@+id/txt_status"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Accepted"
             android:textSize="16sp" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view_task_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <Button
-        android:id="@+id/btn_join_group"
+        android:id="@+id/btn_check_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/primary"
-        android:text="@string/join_groups"/>
+        android:text="@string/check_in_the_task"/>
     <Button
-        android:id="@+id/btn_create_task"
+        android:id="@+id/btn_accept_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/primary"
-        android:text="@string/create_task"/>
+        android:text="@string/accept_the_task"/>
     <Button
-        android:id="@+id/btn_leave_group"
+        android:id="@+id/btn_give_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/danger"
-        android:text="@string/leave_group"/>
+        android:text="@string/give_up_the_task"/>
     <Button
         android:id="@+id/btn_cancel"
         android:layout_width="match_parent"

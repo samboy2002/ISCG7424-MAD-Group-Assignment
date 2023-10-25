@@ -2,6 +2,9 @@ package unitec.iscg7424.groupassignment.models;
 
 import com.google.firebase.database.Exclude;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudyTask {
     public static String[] Periods = new String[]{"Daily"};
     private String id;
@@ -15,6 +18,8 @@ public class StudyTask {
     private String owner;
     private CheckInMethod checkInMethod;
 
+    private List<String> acceptedMembers = new ArrayList<>();
+    private List<String> rejectedMembers = new ArrayList<>();
 
 
     public String getId() {
@@ -95,6 +100,32 @@ public class StudyTask {
 
     public void setCheckInMethod(CheckInMethod checkInMethod) {
         this.checkInMethod = checkInMethod;
+    }
+
+    public List<String> getAcceptedMembers() {
+        return acceptedMembers;
+    }
+
+    public void setAcceptedMembers(List<String> acceptedMembers) {
+        this.acceptedMembers = acceptedMembers;
+    }
+
+    public List<String> getRejectedMembers() {
+        return rejectedMembers;
+    }
+
+    public void setRejectedMembers(List<String> rejectedMembers) {
+        this.rejectedMembers = rejectedMembers;
+    }
+
+    public void addAcceptedMember(String userId) {
+        this.acceptedMembers.add(userId);
+        this.rejectedMembers.remove(userId);
+    }
+
+    public void addRejectedMember(String userId) {
+        this.acceptedMembers.remove(userId);
+        this.rejectedMembers.add(userId);
     }
 
     @Exclude

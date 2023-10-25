@@ -32,6 +32,10 @@
     <string name="icon_calendar">&#xf073;</string>
     <string name="icon_tag">&#xf02b;</string>
     <string name="icon_clock">&#xf1da;</string>
+    <string name="icon_checked">&#xf14a;</string>
+    <string name="icon_unchecked">&#xf0c8;</string>
+    <string name="icon_give_up">&#xf146;</string>
+    <string name="icon_calendar_check">&#xf274;</string>
     <string name="join_groups">Join Groups</string>
     <string name="leave_group">Leave Group</string>
     <string name="create_task">Create Task</string>
@@ -40,4 +44,7 @@
     <string name="task_period">Task Period</string>
     <string name="check_in_method">Check-In Method</string>
     <string name="my_tasks">My Tasks</string>
+    <string name="accept_the_task">Accept The Task</string>
+    <string name="give_up_the_task">Give Up The Task</string>
+    <string name="check_in_the_task">Check In The Task</string>
 </resources>
