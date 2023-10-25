@@ -36,6 +36,12 @@
     <string name="icon_unchecked">&#xf0c8;</string>
     <string name="icon_give_up">&#xf146;</string>
     <string name="icon_calendar_check">&#xf274;</string>
+    <string name="icon_chat">&#xf086;</string>
+    <string name="icon_file_lines">&#xf15c;</string>
+    <string name="icon_session">&#xf4ad;</string>
+    <string name="icon_bell">&#xf0f3;</string>
+    <string name="icon_reward">&#xf091;</string>
+    <string name="icon_temperature">&#xf2c8;</string>
     <string name="join_groups">Join Groups</string>
     <string name="leave_group">Leave Group</string>
     <string name="create_task">Create Task</string>
@@ -49,4 +55,5 @@
     <string name="check_in_the_task">Check In The Task</string>
     <string name="profile">Profile</string>
     <string name="log_out">Log Out</string>
+    <string name="celsius">&#176;C</string>
 </resources>
