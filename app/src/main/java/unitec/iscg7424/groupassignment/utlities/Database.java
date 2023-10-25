@@ -9,6 +9,7 @@ import com.google.firebase.database.Query;
 
 import unitec.iscg7424.groupassignment.models.StudyGroup;
 import unitec.iscg7424.groupassignment.models.StudyTask;
+import unitec.iscg7424.groupassignment.models.TaskRecord;
 import unitec.iscg7424.groupassignment.models.User;
 
 public class Database {

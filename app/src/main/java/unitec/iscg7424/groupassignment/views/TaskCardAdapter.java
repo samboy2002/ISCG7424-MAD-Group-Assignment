@@ -39,7 +39,10 @@ public class TaskCardAdapter extends RecyclerView.Adapter<TaskCardHolder> {
         holder.txtDateRange.setText(task.getDateRange());
         holder.txtTaskPeriod.setText(task.getPeriod());
 
-        if (task.getAcceptedMembers().contains(Constants.loginUser.getId())) {
+        if (task.isFinished(Constants.CurrentDate(), Constants.loginUser.getId())) {
+            holder.txtTaskStatus.setText("Finished");
+            holder.txtTaskStatus.setBackgroundColor(Color.CYAN);
+        } else if (task.getAcceptedMembers().contains(Constants.loginUser.getId())) {
             holder.txtTaskStatus.setText("Accepted");
             holder.txtTaskStatus.setBackgroundColor(Color.GREEN);
         } else if (task.getRejectedMembers().contains(Constants.loginUser.getId())) {

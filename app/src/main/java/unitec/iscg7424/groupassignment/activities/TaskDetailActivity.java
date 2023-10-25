@@ -1,26 +1,44 @@
 package unitec.iscg7424.groupassignment.activities;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
 import unitec.iscg7424.groupassignment.R;
 import unitec.iscg7424.groupassignment.models.StudyTask;
+import unitec.iscg7424.groupassignment.models.TaskRecord;
 import unitec.iscg7424.groupassignment.utlities.Constants;
 import unitec.iscg7424.groupassignment.utlities.Database;
+import unitec.iscg7424.groupassignment.utlities.ImageUtils;
 
 public class TaskDetailActivity extends AppCompatActivity {
     public static StudyTask studyTask;
+    private ActivityResultLauncher<Intent> launcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
+
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result->{
+            if (result.getResultCode() == RESULT_OK) {
+                finish();
+            }
+        });
 
         ((TextView) findViewById(R.id.txt_group_name)).setText(studyTask.getGroupName());
         ((TextView) findViewById(R.id.txt_task_name)).setText(studyTask.getName());
@@ -41,7 +59,13 @@ public class TaskDetailActivity extends AppCompatActivity {
         Button btnGiveUpTask = findViewById(R.id.btn_give_up);
         btnGiveUpTask.setOnClickListener(this::onGiveUpTask);
 
-        if (studyTask.getRejectedMembers().contains(Constants.loginUser.getId())) {
+        if (studyTask.isFinished(Constants.CurrentDate(), Constants.loginUser.getId())) {
+            taskStatus.setText("Finished");
+            statusIcon.setText(getText(R.string.icon_checked));
+            btnCheckTask.setVisibility(View.GONE);
+            btnAcceptTask.setVisibility(View.GONE);
+            btnGiveUpTask.setVisibility(View.GONE);
+        } else if (studyTask.getRejectedMembers().contains(Constants.loginUser.getId())) {
             taskStatus.setText("Give Up");
             statusIcon.setText(getText(R.string.icon_give_up));
             btnCheckTask.setVisibility(View.GONE);
@@ -93,6 +117,11 @@ public class TaskDetailActivity extends AppCompatActivity {
     }
 
     private void onCheckTask(View view) {
-
+        switch (studyTask.getCheckInMethod()) {
+            case Photo:
+                Intent intent = new Intent(this, PhotoActivity.class);
+                launcher.launch(intent);
+                break;
+        }
     }
 }

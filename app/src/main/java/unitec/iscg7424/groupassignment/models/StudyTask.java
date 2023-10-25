@@ -3,7 +3,10 @@ package unitec.iscg7424.groupassignment.models;
 import com.google.firebase.database.Exclude;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class StudyTask {
     public static String[] Periods = new String[]{"Daily"};
@@ -20,6 +23,8 @@ public class StudyTask {
 
     private List<String> acceptedMembers = new ArrayList<>();
     private List<String> rejectedMembers = new ArrayList<>();
+
+    private List<TaskRecord> records = new ArrayList<>();
 
 
     public String getId() {
@@ -118,6 +123,14 @@ public class StudyTask {
         this.rejectedMembers = rejectedMembers;
     }
 
+    public List<TaskRecord> getRecords() {
+        return records;
+    }
+
+    public void setRecords(List<TaskRecord> records) {
+        this.records = records;
+    }
+
     public void addAcceptedMember(String userId) {
         this.acceptedMembers.add(userId);
         this.rejectedMembers.remove(userId);
@@ -128,15 +141,30 @@ public class StudyTask {
         this.rejectedMembers.add(userId);
     }
 
+    public void addTaskRecord(TaskRecord record) {
+        this.records.add(record);
+    }
+
     @Exclude
     public String getDateRange() {
         return startDate + " ~ " + endDate;
     }
 
+    @Exclude
+    public boolean isFinished(String date, String userId) {
+        for (TaskRecord record : records) {
+            if (record.getDate().equals(date) && record.getUserId().equals(userId)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public enum CheckInMethod {
-        Location("location", "Check-In at your location"),
+//        Location("location", "Check-In at your location"),
         Photo("photo", "Upload your photo"),
-        Voice("voice", "Upload your voice record"),
+//        Voice("voice", "Upload your voice record"),
         ;
         private final String code;
         private final String desc;
